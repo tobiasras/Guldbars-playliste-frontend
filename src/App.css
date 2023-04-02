@@ -2,6 +2,15 @@
   text-align: center;
 }
 
+body {
+  background-color: rgb(38 38 38);
+}
+
+.height-m-nav {
+  min-height: calc(100vh - 10em)
+}
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

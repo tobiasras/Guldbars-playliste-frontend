@@ -1,6 +1,8 @@
-import Navbar from "../component/navbar";
+import Navbar from "../component/Navbar";
 
 const FrontpagePage = () => {
+
+
     return (
         <div className="bg-gray-700 bg-neutral-800 flex flex-col justify-between">
             <main>

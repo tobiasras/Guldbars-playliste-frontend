@@ -1,24 +1,21 @@
 import './App.css';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import FrontpagePage from "./pages/frontpagePage";
-import AdminPage from "./pages/adminPage";
-import InfoPage from "./pages/infoPage/infoPage";
-import AddSongPage from "./pages/addSongPage";
+import FrontpagePage from "./pages/FrontpagePage";
+import AdminPage from "./pages/adminPage/AdminPage";
+import InfoPage from "./pages/infoPage/InfoPage";
+import AddSongPage from "./pages/AddSongPage";
 
 function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/">
-                    <Route index element={<FrontpagePage/>}/>
-                    <Route path="admin" element={<AdminPage/>}/>
-                    <Route path="addSong" element={<AddSongPage/>}></Route>
+                <Route index element={<FrontpagePage/>}/>
+                <Route path="admin" element={<AdminPage/>}/>
+                <Route path="addSong" element={<AddSongPage/>}/>
                 <Route path="info" element={<InfoPage/>}/>
-            </Route>
-        </Routes>
-</BrowserRouter>
-)
-    ;
+            </Routes>
+        </BrowserRouter>
+    )
 }
 
 export default App;

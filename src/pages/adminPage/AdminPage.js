@@ -1,9 +1,12 @@
 import Navbar from "../../component/Navbar";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {login} from "./Login";
 import AdminPanel from "../../component/AdminPanel/AdminPanel";
 
 const AdminPage = () => {
+
+    let admin
+
     useEffect(() => {
         if (localStorage.getItem('isLoggedIn') === "secretkey"){
             setIsloggedIn(true)
@@ -24,6 +27,7 @@ const AdminPage = () => {
             } else {
                 setIsloggedIn(true)
                 localStorage.setItem("isLoggedIn", "secretkey")
+                admin = React.lazy(() => import("../../component/AdminPanel/AdminPanel"))
             }
 
         }
@@ -53,6 +57,7 @@ const AdminPage = () => {
 
 
                 {isloggedIn && <AdminPanel/>}
+
             </main>
 
 

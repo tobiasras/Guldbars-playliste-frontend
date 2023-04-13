@@ -1,6 +1,16 @@
-import {play, next, previous, pause} from "./musicController";
+import {play, next, previous, pause,  musicState} from "./musicController";
+import {useEffect, useState} from "react";
 
 const MusicPlayer = () => {
+    const [isPlaying, setIsPlaying] = useState(false)
+
+    useEffect(() => {
+        musicState().then(response => response).then(result => {
+            console.log(result)
+        })
+    }, [])
+
+
     return (
         <div className="w-full bg-neutral-700 rounded flex justify-around p-3">
             <button type="button" onClick={previous}

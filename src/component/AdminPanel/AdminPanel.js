@@ -7,12 +7,7 @@ const AdminPanel = () => {
     useEffect(() => {
 
 
-
-
-
     }, [])
-
-
 
     return (
         <div className="">

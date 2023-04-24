@@ -8,7 +8,19 @@ async function addQueue(trackId){
         method: "POST"
     })
     const result = await promise
-    console.log(result.status)
+    switch(result.status){
+        case 204:
+            alert("Song added to queue")
+            break
+        case 404:
+            alert("404 - Backend not logged in")
+            break
+        case 429:
+            alert("429 - No more requests - wait for some time")
+            break
+        default:
+            alert("ERROR")
+    }
 }
 
 const AddSongPage = () => {

@@ -3,9 +3,19 @@ import Navbar from "../component/Navbar";
 import { Search } from "../component/Search";
 import { Track } from "../component/Track";
 
+
+async function addQueue(trackId){
+    const promise = fetch(`http://localhost:8080/queue/?uri=spotify:track:${trackId}`, {
+        method: "POST"
+    })
+    const result = await promise
+    console.log(result.status)
+}
+
 const AddSongPage = () => {
     const [search, setSearch] = useState([]);
-
+        
+    
     return (
         <div className="w-screen h-full overflow-x-hidden overflow-y-scroll grid grid-cols-[1fr_minmax(0,1000px)_1fr] items-center place-content-center bg-neutral-800 text-white">
             <main className="flex flex-col justify-center items-center col-[2/3]">
@@ -18,7 +28,7 @@ const AddSongPage = () => {
                         {search !== "" ? search.map((trackInfo) => (
                             <li className="flex items-center justify-between gap-4">
                                 <Track key={trackInfo.id} {...trackInfo} />
-                                <p>Add</p>
+                                <button onClick={() => addQueue(trackInfo.id)}>Add</button>
                             </li>
                         )) : "Chould not get track"}
                     </ul>

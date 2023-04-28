@@ -14,7 +14,7 @@ const MusicPlayer = () => {
         if (response.ok) {
             return await response.json()
         } else {
-            alert(response.status)
+            console.log(response.status)
         }
     }
 

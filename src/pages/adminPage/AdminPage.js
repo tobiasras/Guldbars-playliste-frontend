@@ -12,7 +12,6 @@ const AdminPage = () => {
             setIsloggedIn(true)
         }
     }, [])
-
     const [password, setPassword] = useState('')
     const [isloggedIn, setIsloggedIn] = useState(false)
     const loginHandler = async () => {
@@ -23,7 +22,6 @@ const AdminPage = () => {
         } else {
             if (!response?.ok) {
                 alert("error in request to server")
-                console.log(response)
             } else {
                 setIsloggedIn(true)
                 localStorage.setItem("isLoggedIn", "secretkey")

@@ -1,14 +1,7 @@
 import MusicPlayer from "./Parts/MusicPlayer";
 import SpotifyAuth from "./Parts/SpotifyAuth";
-import {useEffect} from "react";
-
 
 const AdminPanel = () => {
-    useEffect(() => {
-
-
-    }, [])
-
     return (
         <div className="">
             <div className="mb-5 text-gray-400">

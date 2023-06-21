@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 
 
 const SpotifyAuth = () => {
-
+    // This is obsolete. Fetching and getting data from api with fetch only is obsolete (within the next 5+ months) in react. Use React / Tan - stack Quer.
     const [loginName, setLoginName] = useState('not connected')
     const authSpotify = async () => {
         const serverUrl = process.env.REACT_APP_SERVER_URL

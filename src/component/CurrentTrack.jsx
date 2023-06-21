@@ -6,7 +6,7 @@ export const CurrentTrack = () => {
 
     useEffect(()=> {
         async function getState() {
-            const promise = await fetch("http://localhost:8080/player/state", {
+            const promise = await fetch(`${process.env.REACT_APP_SERVER_URL}/player/state`, {
                 method: "GET"
             });
             const response = await promise.json();

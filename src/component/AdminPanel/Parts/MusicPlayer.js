@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {playerFetch} from "./musicController";
+import toastr from "toastr";
 
 const MusicPlayer = () => {
     const [isPlaying, setIsPlaying] = useState(true)
@@ -93,4 +94,6 @@ const MusicPlayer = () => {
 
     )
 }
+
+// clean helper class really good.
 export default MusicPlayer

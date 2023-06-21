@@ -7,7 +7,7 @@ export const Queue = () => {
 
     useEffect(()=> {
         async function getQueue() {
-            const connQueue = await fetch("http://localhost:8080/queue/", {
+            const connQueue = await fetch(`${process.env.REACT_APP_SERVER_URL}/queue/`, {
                 method: "GET"
             });
             const dataQueue = await connQueue.json();

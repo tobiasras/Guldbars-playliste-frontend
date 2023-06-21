@@ -2,24 +2,37 @@ import React, {useState} from "react";
 import Navbar from "../component/Navbar";
 import { Search } from "../component/Search";
 import { Track } from "../component/Track";
+import toastr from "toastr";
+toastr.options = {
+    "positionClass": "toast-top-center",
+    "timeOut": "5000",
+    "progressBar": true,
+    "containerId": "toast-container"
+  }
 
 async function addQueue(trackId){
-    const promise = fetch(`http://localhost:8080/queue/?uri=spotify:track:${trackId}`, {
+    const promise = fetch(`${process.env.REACT_APP_SERVER_URL}/queue/?uri=spotify:track:${trackId}`, {
         method: "POST"
     })
     const result = await promise
     switch(result.status){
         case 204:
-            alert("Song added to queue")
+            toastr.success('Song added to queue', 'Success', {
+                "backgroundColor": "green"
+            })
             break
         case 404:
-            alert("404 - Backend not logged in")
+            toastr.error("404 - Backend not logged in", 'Error', {
+                "backgroundColor": "red"
+            })
             break
         case 429:
-            alert("429 - No more requests - wait for some time")
+            toastr.error("429 - No more requests - wait for some time", 'Limiter', {
+                "backgroundColor": "yellow"
+            })
             break
         default:
-            alert("ERROR")
+            toastr.error("ERROR")
     }
 }
 
@@ -46,7 +59,7 @@ const AddSongPage = () => {
                 </section>
             </main>
             <Navbar/>
-            
+            <div id="toast-container" className="toast-container"></div>
         </div>
     )
 }

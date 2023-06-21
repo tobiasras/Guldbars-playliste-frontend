@@ -2,6 +2,7 @@ import Navbar from "../../component/Navbar";
 import React, {useEffect, useState} from "react";
 import {login} from "./Login";
 import AdminPanel from "../../component/AdminPanel/AdminPanel";
+import toastr from "toastr";
 
 const AdminPage = () => {
 
@@ -18,10 +19,10 @@ const AdminPage = () => {
 
         const response = await login(password)
         if (!response) {
-            alert("Server is down")
+            toastr.warning("Server is down")
         } else {
             if (!response?.ok) {
-                alert("error in request to server")
+                toastr.error("error in request to server")
             } else {
                 setIsloggedIn(true)
                 localStorage.setItem("isLoggedIn", "secretkey")
